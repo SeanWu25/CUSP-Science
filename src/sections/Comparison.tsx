@@ -87,7 +87,7 @@ export default function Comparison() {
           }}
         >
           <img
-            src="/images/cusp-comparison-table.png"
+            src="images/cusp-comparison-table.png"
             alt="Comparison of CUSP to ten existing benchmarks across Scientific, Forecasting, Time, Cutoff, Multi-domain, Scale, and Key dimensions. CUSP is the only benchmark that satisfies all five capability axes."
             style={{
               display: 'block',

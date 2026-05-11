@@ -160,7 +160,7 @@ export default function Benchmark() {
           }}
         >
           <img
-            src="/images/cusp-benchmark-stats.png"
+            src="images/cusp-benchmark-stats.png"
             alt="CUSP benchmark composition: paper sources, question types per domain, dataset growth over time, and topic coverage."
             style={{
               display: 'block',

@@ -88,7 +88,7 @@ export default function Architecture() {
           }}
         >
           <img
-            src="/images/cusp-architecture.jpg"
+            src="images/cusp-architecture.jpg"
             alt="CUSP architecture: top-tier journals and community input feed a Filtering Agent, then a Concept Extractor, then a Generation Agent that produces four CUSP question formats."
             style={{
               display: 'block',

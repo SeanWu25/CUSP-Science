@@ -5,10 +5,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const INSTITUTION_LOGOS = [
-  { name: 'University of Oxford', src: '/images/logo-oxford.png', height: 48 },
-  { name: 'Stanford University', src: '/images/logo-stanford.png', height: 48 },
-  { name: 'Allen Institute for AI', src: '/images/logo-ai2.png', height: 42 },
-  { name: 'Sakana AI', src: '/images/logo-sakana.png', height: 34 },
+  { name: 'University of Oxford', src: 'images/logo-oxford.png', height: 48 },
+  { name: 'Stanford University', src: 'images/logo-stanford.png', height: 48 },
+  { name: 'Allen Institute for AI', src: 'images/logo-ai2.png', height: 42 },
+  { name: 'Sakana AI', src: 'images/logo-sakana.png', height: 34 },
 ]
 
 const AUTHORS = [

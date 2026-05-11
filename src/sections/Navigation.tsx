@@ -32,7 +32,7 @@ export default function Navigation() {
       }}
     >
       <img
-        src="/images/cusp-logo.png"
+        src="images/cusp-logo.png"
         alt="CUSP"
         className="cursor-pointer"
         style={{ height: 28, width: 'auto', display: 'block' }}
