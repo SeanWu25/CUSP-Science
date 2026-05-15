@@ -12,16 +12,23 @@ const INSTITUTION_LOGOS = [
 ]
 
 const AUTHORS = [
-  { name: 'Sean Wu', aff: '1', url: 'https://seannwu.github.io/' },
-  { name: 'Pan Lu', aff: '2', url: 'https://lupantech.github.io/' },
+  { name: 'Sean Wu', aff: '1,*', url: 'https://seannwu.github.io/' },
+  { name: 'Pan Lu', aff: '2,*', url: 'https://lupantech.github.io/' },
   { name: 'Yupeng Chen', aff: '1', url: 'https://www.linkedin.com/in/yupeng-chen-107b732b1/' },
   { name: 'Jonathan Bragg', aff: '3', url: 'https://www.jonathanbragg.com/' },
   { name: 'Yutaro Yamada', aff: '4', url: 'https://yutaroyamada.com/' },
   { name: 'Peter Clark', aff: '3', url: 'https://pclark425.github.io/' },
   { name: 'David Clifton', aff: '1', url: 'https://eng.ox.ac.uk/chi/team' },
-  { name: 'Philip Torr', aff: '1', url: 'https://torrvision.com/index.html' },
-  { name: 'James Zou', aff: '2', url: 'https://www.james-zou.com/' },
-  { name: 'Junchi Yu', aff: '1', url: 'https://samyu0304.github.io/' },
+  { name: 'Philip Torr', aff: '1,†', url: 'https://torrvision.com/index.html' },
+  { name: 'James Zou', aff: '2,†', url: 'https://www.james-zou.com/' },
+  { name: 'Junchi Yu', aff: '1,†', url: 'https://samyu0304.github.io/' },
+]
+
+const AFFILIATIONS = [
+  { id: '1', name: 'University of Oxford' },
+  { id: '2', name: 'Stanford University' },
+  { id: '3', name: 'Allen Institute for AI' },
+  { id: '4', name: 'Sakana AI' },
 ]
 
 
@@ -123,15 +130,78 @@ export default function Hero() {
           className="hero-animate"
           style={{
             fontFamily: "'Manrope', sans-serif",
+            fontSize: 14,
+            fontWeight: 400,
+            color: '#666666',
+            textAlign: 'center',
+            marginTop: 14,
+            letterSpacing: '-0.01em',
+            lineHeight: 1.6,
+          }}
+        >
+          {AFFILIATIONS.map((a, i) => (
+            <span key={a.id}>
+              <sup
+                style={{
+                  fontSize: 10,
+                  fontWeight: 600,
+                  color: '#325c76',
+                  marginRight: 2,
+                }}
+              >
+                {a.id}
+              </sup>
+              {a.name}
+              {i < AFFILIATIONS.length - 1 && (
+                <span
+                  style={{
+                    margin: '0 10px',
+                    color: '#c0c0c0',
+                  }}
+                >
+                  ·
+                </span>
+              )}
+            </span>
+          ))}
+        </p>
+
+        <p
+          className="hero-animate"
+          style={{
+            fontFamily: "'Manrope', sans-serif",
             fontSize: 12,
             fontWeight: 400,
             color: '#999',
             textAlign: 'center',
-            marginTop: 6,
+            marginTop: 10,
             letterSpacing: '-0.01em',
+            lineHeight: 1.7,
           }}
         >
-          * Equal contribution
+          <sup style={{ color: '#325c76', fontWeight: 600 }}>*</sup> Core contributors
+          <span style={{ margin: '0 10px', color: '#c0c0c0' }}>·</span>
+          <sup style={{ color: '#325c76', fontWeight: 600 }}>†</sup> Correspondence to{' '}
+          <a
+            href="mailto:junchi.yu@eng.ox.ac.uk"
+            style={{ color: '#666', textDecoration: 'underline' }}
+          >
+            junchi.yu@eng.ox.ac.uk
+          </a>
+          ,{' '}
+          <a
+            href="mailto:philip.torr@eng.ox.ac.uk"
+            style={{ color: '#666', textDecoration: 'underline' }}
+          >
+            philip.torr@eng.ox.ac.uk
+          </a>
+          ,{' '}
+          <a
+            href="mailto:jamesz@stanford.edu"
+            style={{ color: '#666', textDecoration: 'underline' }}
+          >
+            jamesz@stanford.edu
+          </a>
         </p>
 
         {/* Institution Logos Row */}
