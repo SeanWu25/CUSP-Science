@@ -7,27 +7,39 @@ gsap.registerPlugin(ScrollTrigger)
 const FINDINGS = [
   {
     num: '01',
-    title: 'AI systematically predicts science too late.',
+    title: 'Models recognize plausible methods but fail at prediction.',
     explanation:
-      'Models consistently predict discoveries to occur months to years later than they actually did, revealing a shared temporal bias. LLaMA 3.3 showed the smallest median delay (+4.0 months) while GPT-4o showed the largest (+26.0 months).',
+      'Models perform strongly on MCQ mechanistic reasoning — GPT-5.4 reaches 0.819 — but binary feasibility remains near chance across every model evaluated.',
   },
   {
     num: '02',
-    title: 'AI is uniquely predictable in time.',
+    title: 'Discoveries are predicted systematically too late.',
     explanation:
-      'AI progress follows a more regular and forecastable trajectory than other scientific domains, driven by scaling laws and benchmark-driven evaluation. Date prediction accuracy for AI: 46.1% vs. 18–28% for other domains.',
+      'All evaluated models show positive signed error in date prediction. LLaMA 3.3 has the smallest median delay at +4.0 months, while GPT-4o has the largest at +26.0 months.',
   },
   {
     num: '03',
-    title: 'Knowledge access is not the bottleneck.',
+    title: 'Foresight is not explained by training exposure.',
     explanation:
-      'Models retain predictive ability beyond their training cutoff. Augmenting with pre-cutoff web search does not improve performance, suggesting limitations lie in how knowledge is translated into forecasts, not in knowledge access itself.',
+      'Performance is largely insensitive to whether events occur before or after the model training cutoff, suggesting that memorization or direct exposure is not the primary explanation.',
   },
   {
     num: '04',
-    title: 'Forecasting without awareness.',
+    title: 'Knowledge access helps, but does not solve foresight.',
     explanation:
-      'Models are systematically overconfident, with confidence–accuracy gaps up to +0.6. They rely on biased response priors rather than calibrated uncertainty, becoming more confident when reasoning about unseen developments.',
+      'Controlled web-search experiments show that pre-cutoff information improves performance, but a large foresight gap remains relative to full-information hindsight — especially for high-citation advances.',
+  },
+  {
+    num: '05',
+    title: 'Models are overconfident and biased.',
+    explanation:
+      'Models exhibit systematic overconfidence and strong yes/no response biases in feasibility prediction, making their uncertainty estimates unreliable under scientific uncertainty.',
+  },
+  {
+    num: '06',
+    title: 'Time Capsule extends CUSP into prospective forecasting.',
+    explanation:
+      'CUSP Time Capsule contains future-facing scientific and AI capability questions whose outcomes are not yet known, enabling prospective study of model predictions, calibration, and agreement.',
   },
 ]
 

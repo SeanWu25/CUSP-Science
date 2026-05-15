@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger)
 const RESULTS = [
   { model: 'GPT-5.4', cutoff: 'Aug 2025', binary: '0.499', mcq: '0.819', date: '0.241', frq: '5.04', pass: '60.3', bestM: true, bestF: true },
   { model: 'Claude S4.5', cutoff: 'Jan 2025', binary: '0.513', mcq: '0.724', date: '0.239', frq: '3.99', pass: '14.0', bestB: true },
-  { model: 'DeepSeek R1', cutoff: 'Jul 2024', binary: '0.481', mcq: '0.594', date: '0.288', frq: '4.18', pass: '20.0', bestD: true },
+  { model: 'DeepSeek R1', cutoff: 'Jul 2024', binary: '0.481', mcq: '0.594', date: '0.288', frq: '4.18', pass: '20.0' },
   { model: 'GPT-4o', cutoff: 'Oct 2023', binary: '0.519', mcq: '0.530', date: '0.178', frq: '3.26', pass: '3.9' },
   { model: 'GPT-OSS 20B', cutoff: 'Jun 2024', binary: '0.518', mcq: '0.471', date: '0.300', frq: '3.86', pass: '11.9' },
   { model: 'LLaMA 3.3', cutoff: 'Dec 2023', binary: '0.453', mcq: '0.434', date: '0.500', frq: '3.49', pass: '2.5', bestD: true },
@@ -58,10 +58,30 @@ export default function Results() {
             textAlign: 'center',
           }}
         >
-          Overall Model Performance
+          Overall model performance
         </h2>
+        <p
+          className="results-animate"
+          style={{
+            fontFamily: "'Manrope', sans-serif",
+            fontSize: 16,
+            fontWeight: 400,
+            lineHeight: 1.7,
+            letterSpacing: '-0.01em',
+            color: '#666666',
+            textAlign: 'center',
+            marginTop: 16,
+            marginInline: 'auto',
+            maxWidth: 720,
+          }}
+        >
+          No model dominates across all task types. GPT-5.4 leads on mechanistic reasoning and
+          free-response proposal quality, while LLaMA 3.3 achieves the strongest date score. Across
+          models, binary feasibility remains near chance — recognizing plausible approaches is much
+          easier than forecasting whether progress will actually occur.
+        </p>
 
-        <div className="results-animate" style={{ marginTop: 48, overflowX: 'auto' }}>
+        <div className="results-animate" style={{ marginTop: 40, overflowX: 'auto' }}>
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr style={{ backgroundColor: '#222222' }}>

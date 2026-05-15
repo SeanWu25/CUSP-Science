@@ -9,25 +9,31 @@ const TASKS = [
     num: '01',
     title: 'Binary Feasibility Prediction',
     description:
-      'Tests whether a model can determine if a concrete scientific claim will be achieved, distinguishing realized advances from plausible but unrealized alternatives.',
+      'Tests whether a model can predict if a concrete scientific claim will be achieved by a target date, distinguishing realized advances from plausible alternatives.',
   },
   {
     num: '02',
-    title: 'Mechanistic Reasoning',
+    title: 'Perturbed Binary Prediction',
     description:
-      'Asks the model to identify the technical approach that later enabled the discovery from competing candidates, probing whether it can discriminate genuine breakthrough mechanisms from plausible distractors.',
+      'Probes calibration and progress bias using plausible but unsupported variants of real scientific claims to expose response-side shortcuts.',
   },
   {
     num: '03',
-    title: 'Generative Proposal',
+    title: 'Mechanistic Reasoning',
     description:
-      'Requires the model to propose a concrete solution strategy from the pre-cutoff problem context, scored on alignment, specificity, novelty, and feasibility.',
+      'Uses multiple-choice questions to test whether models can identify the technical approach that enabled a discovery from expert-plausible distractors.',
   },
   {
     num: '04',
+    title: 'Generative Solution Design',
+    description:
+      'Free-response prompts test whether models can propose concrete solution strategies from pre-cutoff context, scored on alignment, specificity, novelty, and feasibility.',
+  },
+  {
+    num: '05',
     title: 'Temporal Prediction',
     description:
-      'Asks the model to forecast when a milestone will be realized, with exponential-decay scoring that assigns partial credit to temporally proximate forecasts.',
+      'Asks the model to forecast the month and year a scientific milestone will be realized, with exponential-decay scoring that rewards temporally proximate forecasts.',
   },
 ]
 
@@ -82,7 +88,7 @@ export default function FourTasks() {
               marginTop: 8,
             }}
           >
-            Four dimensions of scientific foresight
+            Five task formats, four dimensions of foresight
           </h2>
           <p
             className="task-animate"

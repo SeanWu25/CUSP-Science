@@ -85,7 +85,7 @@ export default function Benchmark() {
               marginTop: 8,
             }}
           >
-            A living dataset of scientific progress
+            Benchmark at a glance
           </h2>
           <p
             className="benchmark-animate"
@@ -101,7 +101,8 @@ export default function Benchmark() {
             }}
           >
             CUSP draws on 4,760 milestones from top-tier journals and curated AI sources, spanning
-            nine scientific domains and continuously updated as new discoveries appear.
+            nine scientific domains and 27 months of progress from January 2024 to March 2026.
+            The benchmark is semi-live and periodically updated as new milestones are incorporated.
           </p>
         </div>
 

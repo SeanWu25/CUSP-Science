@@ -71,8 +71,8 @@ export default function Architecture() {
             }}
           >
             A multi-agent pipeline filters scientific findings, extracts the underlying core
-            concepts, and generates four task formats — Binary, MCQ, Open-Ended, and Date Prediction
-            — that probe distinct aspects of scientific foresight.
+            concepts, and generates the five task formats that probe distinct aspects of scientific
+            foresight. Tasks are then validated for faithfulness, verifiability, and leakage control.
           </p>
         </div>
 
@@ -119,6 +119,81 @@ export default function Architecture() {
             updates automatically as new discoveries are published.
           </figcaption>
         </figure>
+
+        <div
+          className="arch-animate"
+          style={{
+            backgroundColor: '#ffffff',
+            borderRadius: 20,
+            border: '1px solid rgba(0,0,0,0.07)',
+            padding: '32px 28px',
+            boxShadow: '0 1px 2px rgba(0,0,0,0.04), 0 8px 24px rgba(50,92,118,0.06)',
+            marginTop: 32,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: '0.12em',
+              textTransform: 'uppercase',
+              color: '#325c76',
+            }}
+          >
+            Validation
+          </div>
+          <h3
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 22,
+              fontWeight: 500,
+              lineHeight: 1.3,
+              letterSpacing: '-0.01em',
+              color: '#1a1a1a',
+              marginTop: 6,
+            }}
+          >
+            Validated for faithfulness, verifiability, and leakage control
+          </h3>
+          <p
+            style={{
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 15,
+              fontWeight: 400,
+              lineHeight: 1.7,
+              letterSpacing: '-0.01em',
+              color: '#666666',
+              marginTop: 12,
+            }}
+          >
+            CUSP uses an automated validation pipeline with an independent LLM judge and human
+            expert review to verify that tasks are faithful to source abstracts, objectively
+            measurable, and free from unsupported perturbations or trivial distractors.
+          </p>
+          <ul
+            style={{
+              marginTop: 18,
+              paddingLeft: 18,
+              fontFamily: "'Manrope', sans-serif",
+              fontSize: 14,
+              fontWeight: 400,
+              lineHeight: 1.85,
+              color: '#444444',
+              letterSpacing: '-0.01em',
+            }}
+          >
+            <li>Abstracts are decomposed into problem statement, technical approach, and outcome.</li>
+            <li>Post-cutoff identifiers, acronyms, method names, and system names are stripped.</li>
+            <li>Binary and perturbed questions are checked for faithfulness and verifiability.</li>
+            <li>MCQs are checked for plausible expert distractors, not surface-level fillers.</li>
+            <li>FRQs are judged on alignment, specificity, novelty, and feasibility.</li>
+            <li>
+              Free-response evaluation includes explicit leakage detection that flags responses
+              naming post-cutoff entities.
+            </li>
+          </ul>
+        </div>
       </div>
     </section>
   )

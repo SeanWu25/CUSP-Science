@@ -17,13 +17,14 @@ const AUTHORS = [
   { name: 'Yupeng Chen', aff: '1' },
   { name: 'Jonathan Bragg', aff: '3' },
   { name: 'Yutaro Yamada', aff: '4' },
+  { name: 'Peter Clark', aff: '3' },
   { name: 'David Clifton', aff: '1' },
   { name: 'Philip Torr', aff: '1' },
   { name: 'James Zou', aff: '2' },
   { name: 'Junchi Yu', aff: '1' },
 ]
 
-const ABSTRACT = `Artificial intelligence is increasingly integrated into scientific discovery, yet it remains unclear whether these systems can anticipate future scientific progress rather than reason over existing knowledge. We formalize this capability as scientific foresight, defined as the ability to predict concrete, verifiable discoveries beyond a model's knowledge cutoff. Here, we introduce CUSP (Cutoff-conditioned Unseen Scientific Progress), a temporally grounded benchmark that evaluates whether models can forecast scientific milestones using only information available prior to a fixed historical cutoff. CUSP spans thousands of discoveries across multiple disciplines and evaluates model capability across feasibility, mechanistic reasoning, generative proposal, and date prediction.`
+const ABSTRACT = `Artificial intelligence is increasingly embedded in scientific discovery, but whether AI systems can anticipate scientific progress remains unclear. We introduce CUSP — Cutoff-conditioned Unseen Scientific Progress, a multi-disciplinary, event-level benchmark that evaluates scientific foresight across feasibility prediction, mechanistic reasoning, generative solution design, and temporal prediction. Across 4,760 scientific events and 17,429 forecasting tasks, current frontier models can often recognize plausible technical approaches, but fail to reliably predict whether scientific advances will be realized, when they will occur, or how they will be achieved. CUSP reveals a fundamental gap between knowledge access and scientific foresight.`
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -192,52 +193,49 @@ export default function Hero() {
           </p>
 
           {/* Action Row */}
-          <div className="flex items-center gap-3" style={{ marginTop: 32 }}>
-            <a
-              href="#"
-              style={{
-                display: 'inline-block',
-                borderRadius: 100,
-                padding: '10px 24px',
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: 14,
-                fontWeight: 500,
-                backgroundColor: '#1a1a1a',
-                color: '#f9f9f9',
-                textDecoration: 'none',
-                transition: 'background-color 0.2s',
-              }}
-              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#222222' }}
-              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#1a1a1a' }}
-            >
-              Read Paper
-            </a>
-            <a
-              href="#"
-              style={{
-                display: 'inline-block',
-                borderRadius: 100,
-                padding: '10px 24px',
-                fontFamily: "'Manrope', sans-serif",
-                fontSize: 14,
-                fontWeight: 500,
-                border: '1px solid #1a1a1a',
-                color: '#1a1a1a',
-                backgroundColor: 'transparent',
-                textDecoration: 'none',
-                transition: 'all 0.2s',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#1a1a1a'
-                e.currentTarget.style.color = '#f9f9f9'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = 'transparent'
-                e.currentTarget.style.color = '#1a1a1a'
-              }}
-            >
-              Code on GitHub
-            </a>
+          <div className="flex flex-wrap items-center gap-3" style={{ marginTop: 32 }}>
+            {[
+              { label: 'Paper', primary: true, href: '#' },
+              { label: 'Code', primary: false, href: '#' },
+              { label: 'Dataset', primary: false, href: '#' },
+              { label: 'Leaderboard', primary: false, href: '#' },
+            ].map((btn) => (
+              <a
+                key={btn.label}
+                href={btn.href}
+                style={{
+                  display: 'inline-block',
+                  borderRadius: 100,
+                  padding: '10px 24px',
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 14,
+                  fontWeight: 500,
+                  backgroundColor: btn.primary ? '#1a1a1a' : 'transparent',
+                  color: btn.primary ? '#f9f9f9' : '#1a1a1a',
+                  border: btn.primary ? 'none' : '1px solid #1a1a1a',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={(e) => {
+                  if (btn.primary) {
+                    e.currentTarget.style.backgroundColor = '#222222'
+                  } else {
+                    e.currentTarget.style.backgroundColor = '#1a1a1a'
+                    e.currentTarget.style.color = '#f9f9f9'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (btn.primary) {
+                    e.currentTarget.style.backgroundColor = '#1a1a1a'
+                  } else {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                    e.currentTarget.style.color = '#1a1a1a'
+                  }
+                }}
+              >
+                {btn.label}
+              </a>
+            ))}
           </div>
         </div>
         </div>

@@ -1,4 +1,16 @@
+const BIBTEX = `@article{wu2026forecasting,
+  title={Forecasting Scientific Progress with Artificial Intelligence},
+  author={Wu, Sean and Lu, Pan and Chen, Yupeng and Bragg, Jonathan and
+          Yamada, Yutaro and Clark, Peter and Clifton, David and
+          Torr, Philip and Zou, James and Yu, Junchi},
+  year={2026}
+}`
+
 export default function Footer() {
+  const copyBibtex = () => {
+    navigator.clipboard?.writeText(BIBTEX).catch(() => {})
+  }
+
   return (
     <footer id="footer" style={{ backgroundColor: '#1a1a1a', padding: '80px 0' }}>
       <div className="mx-auto px-6" style={{ maxWidth: 960 }}>
@@ -18,8 +30,9 @@ export default function Footer() {
         <div className="flex flex-wrap gap-8" style={{ marginTop: 32 }}>
           {[
             { label: 'Paper', href: '#' },
+            { label: 'arXiv', href: '#' },
             { label: 'Code', href: '#' },
-            { label: 'Dataset', href: '#' },
+            { label: 'Hugging Face', href: '#' },
             { label: 'Leaderboard', href: '#' },
             { label: 'Contact', href: '#' },
           ].map((link, i) => (
@@ -43,10 +56,73 @@ export default function Footer() {
           ))}
         </div>
 
+        {/* Citation */}
+        <div style={{ marginTop: 48 }}>
+          <div
+            className="flex items-center justify-between"
+            style={{ marginBottom: 12 }}
+          >
+            <span
+              style={{
+                fontFamily: "'Manrope', sans-serif",
+                fontSize: 12,
+                fontWeight: 600,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                color: '#7fa3b8',
+              }}
+            >
+              Cite
+            </span>
+            <button
+              onClick={copyBibtex}
+              style={{
+                fontFamily: "'Manrope', sans-serif",
+                fontSize: 12,
+                fontWeight: 500,
+                color: 'rgba(244,244,244,0.7)',
+                background: 'transparent',
+                border: '1px solid rgba(244,244,244,0.2)',
+                borderRadius: 100,
+                padding: '4px 12px',
+                cursor: 'pointer',
+                transition: 'all 0.2s',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.color = '#f9f9f9'
+                e.currentTarget.style.borderColor = 'rgba(244,244,244,0.5)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.color = 'rgba(244,244,244,0.7)'
+                e.currentTarget.style.borderColor = 'rgba(244,244,244,0.2)'
+              }}
+            >
+              Copy BibTeX
+            </button>
+          </div>
+          <pre
+            style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: 12,
+              lineHeight: 1.6,
+              color: 'rgba(244,244,244,0.75)',
+              backgroundColor: '#0f0f0f',
+              border: '1px solid rgba(244,244,244,0.08)',
+              borderRadius: 12,
+              padding: 20,
+              overflowX: 'auto',
+              margin: 0,
+              whiteSpace: 'pre',
+            }}
+          >
+            {BIBTEX}
+          </pre>
+        </div>
+
         {/* Bottom */}
         <div
           className="flex items-center justify-between"
-          style={{ marginTop: 64, borderTop: '1px solid rgba(244,244,244,0.08)', paddingTop: 24 }}
+          style={{ marginTop: 48, borderTop: '1px solid rgba(244,244,244,0.08)', paddingTop: 24 }}
         >
           <span
             style={{
