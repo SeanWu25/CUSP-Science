@@ -24,7 +24,6 @@ const AUTHORS = [
   { name: 'Junchi Yu', aff: '1' },
 ]
 
-const ABSTRACT = `Artificial intelligence is increasingly embedded in scientific discovery, but whether AI systems can anticipate scientific progress remains unclear. We introduce CUSP — Cutoff-conditioned Unseen Scientific Progress, a multi-disciplinary, event-level benchmark that evaluates scientific foresight across feasibility prediction, mechanistic reasoning, generative solution design, and temporal prediction. Across 4,760 scientific events and 17,429 forecasting tasks, current frontier models can often recognize plausible technical approaches, but fail to reliably predict whether scientific advances will be realized, when they will occur, or how they will be achieved. CUSP reveals a fundamental gap between knowledge access and scientific foresight.`
 
 export default function Hero() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -187,9 +186,33 @@ export default function Hero() {
                 marginTop: 4,
               }}
             >
-              {ABSTRACT.charAt(0)}
+              A
             </span>
-            {ABSTRACT.slice(1)}
+            rtificial intelligence (AI) is increasingly embedded in scientific discovery, yet
+            whether it can anticipate scientific progress remains unclear. Here, we introduce
+            scientific foresight as a measurable capability and present CUSP
+            (<strong style={{ fontWeight: 700 }}>C</strong>utoff-conditioned{' '}
+            <strong style={{ fontWeight: 700 }}>U</strong>nseen{' '}
+            <strong style={{ fontWeight: 700 }}>S</strong>cientific{' '}
+            <strong style={{ fontWeight: 700 }}>P</strong>rogress), a multi-disciplinary and
+            event-level benchmark that evaluates whether AI systems can predict scientific progress
+            by jointly assessing feasibility, mechanistic reasoning, generative solution design, and
+            temporal prediction. Across 4,760 scientific events, we find that current frontier
+            models exhibit systematic and domain-dependent limitations. While models can identify
+            plausible research directions from competing candidates, they fail to reliably predict
+            whether scientific advances will be realized and systematically misestimate when they
+            will occur. Model performance is highly heterogeneous across domains, with stronger
+            results in artificial intelligence than in biology, chemistry, and physics. Performance
+            is largely insensitive to whether events occur before or after the training cutoff,
+            suggesting that these limitations cannot be explained solely by knowledge exposure in
+            training data. Under controlled information access, providing additional pre-cutoff
+            knowledge improves performance but does not close the gap to full-information settings,
+            which becomes more pronounced for high-citation scientific advances. Moreover, models
+            exhibit systematic overconfidence and strong response biases, indicating that their
+            uncertainty estimation is unreliable in scientific foresight. Taken together, these
+            findings reveal that current AI systems fall short as predictive tools for scientific
+            progress, as access to prior knowledge does not translate into scientific foresight.
+            Instead, they highly rely on hindsight analysis once outcomes are known.
           </p>
 
           {/* Action Row */}
