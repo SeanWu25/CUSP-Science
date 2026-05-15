@@ -12,16 +12,16 @@ const INSTITUTION_LOGOS = [
 ]
 
 const AUTHORS = [
-  { name: 'Sean Wu', aff: '1' },
-  { name: 'Pan Lu', aff: '2' },
-  { name: 'Yupeng Chen', aff: '1' },
-  { name: 'Jonathan Bragg', aff: '3' },
-  { name: 'Yutaro Yamada', aff: '4' },
-  { name: 'Peter Clark', aff: '3' },
-  { name: 'David Clifton', aff: '1' },
-  { name: 'Philip Torr', aff: '1' },
-  { name: 'James Zou', aff: '2' },
-  { name: 'Junchi Yu', aff: '1' },
+  { name: 'Sean Wu', aff: '1', url: 'https://seannwu.github.io/' },
+  { name: 'Pan Lu', aff: '2', url: 'https://lupantech.github.io/' },
+  { name: 'Yupeng Chen', aff: '1', url: 'https://www.linkedin.com/in/yupeng-chen-107b732b1/' },
+  { name: 'Jonathan Bragg', aff: '3', url: 'https://www.jonathanbragg.com/' },
+  { name: 'Yutaro Yamada', aff: '4', url: 'https://yutaroyamada.com/' },
+  { name: 'Peter Clark', aff: '3', url: 'https://pclark425.github.io/' },
+  { name: 'David Clifton', aff: '1', url: 'https://eng.ox.ac.uk/chi/team' },
+  { name: 'Philip Torr', aff: '1', url: 'https://torrvision.com/index.html' },
+  { name: 'James Zou', aff: '2', url: 'https://www.james-zou.com/' },
+  { name: 'Junchi Yu', aff: '1', url: 'https://samyu0304.github.io/' },
 ]
 
 
@@ -75,17 +75,24 @@ export default function Hero() {
         >
           {AUTHORS.map((author, i) => (
             <span key={i}>
-              <span
+              <a
+                href={author.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontFamily: "'Manrope', sans-serif",
                   fontSize: 20,
                   fontWeight: 500,
                   color: '#3a3a3a',
                   letterSpacing: '-0.01em',
+                  textDecoration: 'none',
+                  transition: 'color 0.15s',
                 }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = '#325c76' }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = '#3a3a3a' }}
               >
                 {author.name}
-              </span>
+              </a>
               <sup
                 style={{
                   fontSize: 12,
@@ -219,13 +226,15 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-3" style={{ marginTop: 32 }}>
             {[
               { label: 'Paper', primary: true, href: '#' },
-              { label: 'Code', primary: false, href: '#' },
-              { label: 'Dataset', primary: false, href: '#' },
+              { label: 'Code', primary: false, href: 'https://github.com/SeanWu25/cusp-scientific-foresight' },
+              { label: 'Dataset', primary: false, href: 'https://huggingface.co/datasets/SeanWu25/CUSP' },
               { label: 'Leaderboard', primary: false, href: '#' },
             ].map((btn) => (
               <a
                 key={btn.label}
                 href={btn.href}
+                target={btn.href === '#' ? undefined : '_blank'}
+                rel={btn.href === '#' ? undefined : 'noopener noreferrer'}
                 style={{
                   display: 'inline-block',
                   borderRadius: 100,

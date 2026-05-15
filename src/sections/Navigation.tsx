@@ -41,37 +41,60 @@ export default function Navigation() {
       <div className="flex items-center gap-2">
         {[
           { label: 'Paper', id: 'hero' },
-          { label: 'Code', id: 'footer' },
-          { label: 'Dataset', id: 'benchmark' },
+          { label: 'Code', href: 'https://github.com/SeanWu25/cusp-scientific-foresight' },
+          { label: 'Dataset', href: 'https://huggingface.co/datasets/SeanWu25/CUSP' },
           { label: 'Leaderboard', id: 'results' },
-        ].map((link) => (
-          <button
-            key={link.id}
-            onClick={() => scrollTo(link.id)}
-            className="transition-all duration-250"
-            style={{
-              border: '1px solid #325c76',
-              borderRadius: 100,
-              padding: '4px 14px',
-              fontFamily: "'Manrope', sans-serif",
-              fontWeight: 500,
-              fontSize: 13,
-              color: '#325c76',
-              backgroundColor: 'transparent',
-              cursor: 'pointer',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#325c76'
-              e.currentTarget.style.color = '#fff'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent'
-              e.currentTarget.style.color = '#325c76'
-            }}
-          >
-            {link.label}
-          </button>
-        ))}
+        ].map((link) => {
+          const sharedStyle: React.CSSProperties = {
+            border: '1px solid #325c76',
+            borderRadius: 100,
+            padding: '4px 14px',
+            fontFamily: "'Manrope', sans-serif",
+            fontWeight: 500,
+            fontSize: 13,
+            color: '#325c76',
+            backgroundColor: 'transparent',
+            cursor: 'pointer',
+            textDecoration: 'none',
+            display: 'inline-block',
+          }
+          const hover = (e: React.MouseEvent<HTMLElement>) => {
+            e.currentTarget.style.backgroundColor = '#325c76'
+            e.currentTarget.style.color = '#fff'
+          }
+          const leave = (e: React.MouseEvent<HTMLElement>) => {
+            e.currentTarget.style.backgroundColor = 'transparent'
+            e.currentTarget.style.color = '#325c76'
+          }
+          if (link.href) {
+            return (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-250"
+                style={sharedStyle}
+                onMouseEnter={hover}
+                onMouseLeave={leave}
+              >
+                {link.label}
+              </a>
+            )
+          }
+          return (
+            <button
+              key={link.label}
+              onClick={() => link.id && scrollTo(link.id)}
+              className="transition-all duration-250"
+              style={sharedStyle}
+              onMouseEnter={hover}
+              onMouseLeave={leave}
+            >
+              {link.label}
+            </button>
+          )
+        })}
       </div>
     </nav>
   )

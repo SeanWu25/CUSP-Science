@@ -31,14 +31,16 @@ export default function Footer() {
           {[
             { label: 'Paper', href: '#' },
             { label: 'arXiv', href: '#' },
-            { label: 'Code', href: '#' },
-            { label: 'Hugging Face', href: '#' },
+            { label: 'Code', href: 'https://github.com/SeanWu25/cusp-scientific-foresight' },
+            { label: 'Hugging Face', href: 'https://huggingface.co/datasets/SeanWu25/CUSP' },
             { label: 'Leaderboard', href: '#' },
             { label: 'Contact', href: '#' },
           ].map((link, i) => (
             <a
               key={i}
               href={link.href}
+              target={link.href === '#' ? undefined : '_blank'}
+              rel={link.href === '#' ? undefined : 'noopener noreferrer'}
               style={{
                 fontFamily: "'Manrope', sans-serif",
                 fontSize: 16,
