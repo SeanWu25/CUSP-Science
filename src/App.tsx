@@ -7,6 +7,7 @@ import Hero from './sections/Hero'
 import MainResult from './sections/MainResult'
 import Benchmark from './sections/Benchmark'
 import FourTasks from './sections/FourTasks'
+import Examples from './sections/Examples'
 import Architecture from './sections/Architecture'
 import Results from './sections/Results'
 import KeyFindings from './sections/KeyFindings'
@@ -45,6 +46,7 @@ export default function App() {
       <MainResult />
       <Benchmark />
       <FourTasks />
+      <Examples />
       <Architecture />
       <Results />
       <KeyFindings />
