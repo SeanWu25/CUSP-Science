@@ -76,29 +76,27 @@ export default function Hero() {
         >
           {AUTHORS.map((author, i) => (
             <span key={i}>
-              <span style={{ whiteSpace: 'nowrap' }}>
-                <span
-                  style={{
-                    fontFamily: "'Manrope', sans-serif",
-                    fontSize: 20,
-                    fontWeight: 500,
-                    color: '#3a3a3a',
-                    letterSpacing: '-0.01em',
-                  }}
-                >
-                  {author.name}
-                </span>
-                <sup
-                  style={{
-                    fontSize: 12,
-                    fontWeight: 600,
-                    color: '#325c76',
-                    marginLeft: 1,
-                  }}
-                >
-                  {author.aff}
-                </sup>
+              <span
+                style={{
+                  fontFamily: "'Manrope', sans-serif",
+                  fontSize: 20,
+                  fontWeight: 500,
+                  color: '#3a3a3a',
+                  letterSpacing: '-0.01em',
+                }}
+              >
+                {author.name}
               </span>
+              <sup
+                style={{
+                  fontSize: 12,
+                  fontWeight: 600,
+                  color: '#325c76',
+                  marginLeft: 1,
+                }}
+              >
+                {author.aff}
+              </sup>
               {i < AUTHORS.length - 1 && (
                 <span
                   style={{
